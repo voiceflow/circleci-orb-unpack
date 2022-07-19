@@ -1,0 +1,10 @@
+[package]
+name = "orb-unpack"
+version = "0.1.0"
+edition = "2021"
+description = "Unpack a CircleCI orb.yml into separate files compatible with orb packing"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "3.2", features = ["derive"] }
+yaml-rust = "0.4"
