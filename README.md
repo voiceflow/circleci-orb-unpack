@@ -1,5 +1,8 @@
 # CircleCI Orb Unpacking Tool
 
+![Crates.io](https://img.shields.io/crates/v/orb-unpack)
+![GitHub](https://img.shields.io/github/license/Xavientois/circleci-orb-unpack)
+
 This CLI tool is designed to facilitate the process of migrating a CircleCI Orb to the Orb Development Kit format, where components are stored in separate files rather than in one `orb.yml` file. By running this tool on a given `orb.yml` file, the specified destination directory will be populated with a file structure as as follows:
 
 ```
