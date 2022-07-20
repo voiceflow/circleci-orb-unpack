@@ -2,6 +2,8 @@
 name = "orb-unpack"
 version = "0.1.0"
 edition = "2021"
+authors = ["Xavientois <joshua.rampersad@hotmail.com>"]
+repository = "https://github.com/Xavientois/circleci-orb-unpack"
 description = "Unpack a CircleCI orb.yml into separate files compatible with orb packing"
 
 [dependencies]

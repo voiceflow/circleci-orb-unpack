@@ -1,10 +1,11 @@
 use anyhow::{bail, Result};
 use std::{
     fs::{self, create_dir_all},
-    path::PathBuf,
+    path::{Path, PathBuf},
 };
 use yaml_rust::{yaml::Hash, Yaml, YamlEmitter, YamlLoader};
 
+/// Unpacks an orb YAML file from the source path into the destination directory
 pub fn unpack_from_file(source: PathBuf, dest: PathBuf) -> Result<()> {
     let orb = get_orb_from_path(source)?;
     let orb_root = unpack_to_dir(orb, &dest)?;
@@ -13,7 +14,7 @@ pub fn unpack_from_file(source: PathBuf, dest: PathBuf) -> Result<()> {
 
 /// Unpacks the relevant sections into separate files and directories
 /// Returns the remaining YAML after those sections are removed
-fn unpack_to_dir(mut orb: Hash, dest: &PathBuf) -> Result<Hash> {
+fn unpack_to_dir(mut orb: Hash, dest: &Path) -> Result<Hash> {
     // Write sections to subdirectories
     for section_name in ["commands", "jobs", "executors", "examples"] {
         if let Some(Yaml::Hash(section)) = orb.remove(&Yaml::from_str(section_name)) {

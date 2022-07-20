@@ -4,7 +4,7 @@ use orb_unpack::unpack_from_file;
 use std::path::PathBuf;
 
 #[derive(Parser, Debug)]
-#[clap(author, version, about)]
+#[clap(version, about)]
 struct Args {
     /// Orb yaml file to unpack
     pub orb_file: PathBuf,
