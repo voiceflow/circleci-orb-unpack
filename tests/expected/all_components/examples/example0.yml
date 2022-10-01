@@ -1,0 +1,9 @@
+description: "Sample example description.\n"
+usage:
+  version: 2.1
+  orbs:
+    my-orb: namespace/my-orb0@1.2.3
+  workflows:
+    use-my-orb:
+      jobs:
+        - my-orb/my-job

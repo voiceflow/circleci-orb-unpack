@@ -1,0 +1,12 @@
+description: "# What will this command do? # Descriptions should be short, simple, and clear.\n"
+parameters:
+  target:
+    type: string
+    default: Hello
+    description: To whom to greet?
+steps:
+  - run:
+      name: Hello World
+      environment:
+        ORB_PARAM_TARGET: "<< parameters.target >>"
+      command: "echo \"Hello ${ORB_PARAM_TARGET}\""

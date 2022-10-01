@@ -1,0 +1,8 @@
+version: 2.1
+description: Sample orb description
+display:
+  home_url: "https://www.website.com/docs"
+  source_url: "https://www.github.com/EXAMPLE_ORG/EXAMPLE_PROJECT"
+orbs:
+  gh: circleci/github-cli@1.0
+  slack: circleci/slack@4.2.1

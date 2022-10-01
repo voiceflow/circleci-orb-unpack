@@ -1,0 +1,42 @@
+version: 2.1
+
+description: Sample orb description
+display:
+  home_url: "https://www.website.com/docs"
+  source_url: "https://www.github.com/EXAMPLE_ORG/EXAMPLE_PROJECT"
+
+orbs:
+    gh: circleci/github-cli@1.0
+    slack: circleci/slack@4.2.1
+
+commands:
+  command0:
+    description: >
+      # What will this command do?
+      # Descriptions should be short, simple, and clear.
+    parameters:
+      target:
+        type: string
+        default: "Hello"
+        description: "To whom to greet?"
+    steps:
+      - run:
+          name: Hello World
+          environment:
+            ORB_PARAM_TARGET: << parameters.target >>
+          command: echo "Hello ${ORB_PARAM_TARGET}"
+  command1:
+    description: >
+      # What will this command do??
+      # Descriptions should be short, simple, and clear.
+    parameters:
+      target:
+        type: string
+        default: "World"
+        description: "To whom to greet?"
+    steps:
+      - run:
+          name: Hello World
+          environment:
+            ORB_PARAM_TARGET: << parameters.target >>
+          command: echo "Hello ${ORB_PARAM_TARGET}"

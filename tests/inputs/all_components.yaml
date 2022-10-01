@@ -1,0 +1,123 @@
+version: 2.1
+
+description: Sample orb description
+
+display:
+  home_url: "https://www.website.com/docs"
+  source_url: "https://www.github.com/EXAMPLE_ORG/EXAMPLE_PROJECT"
+
+orbs:
+    gh: circleci/github-cli@1.0
+    slack: circleci/slack@4.2.1
+
+commands:
+  command0:
+    description: >
+      # What will this command do?
+      # Descriptions should be short, simple, and clear.
+    parameters:
+      target:
+        type: string
+        default: "Hello"
+        description: "To whom to greet?"
+    steps:
+      - run:
+          name: Hello World
+          environment:
+            ORB_PARAM_TARGET: << parameters.target >>
+          command: echo "Hello ${ORB_PARAM_TARGET}"
+  command1:
+    description: >
+      # What will this command do??
+      # Descriptions should be short, simple, and clear.
+    parameters:
+      target:
+        type: string
+        default: "World"
+        description: "To whom to greet?"
+    steps:
+      - run:
+          name: Hello World
+          environment:
+            ORB_PARAM_TARGET: << parameters.target >>
+          command: echo "Hello ${ORB_PARAM_TARGET}"
+
+
+executors:
+  my-executor:
+    description: >
+      This is a sample executor using Docker and Node. If you want to provide a custom environment in your orb, insert your image here.
+      If you do not require an executor, you can simply delete this directory.
+    docker:
+      - image: 'cimg/node:<<parameters.tag>>'
+    parameters:
+      tag:
+        default: lts
+        description: >
+          Pick a specific cimg/node image variant:
+          https://hub.docker.com/r/cimg/node/tags
+        type: string
+  
+
+jobs:
+  job0:
+    description: >
+      # What will this job do?
+      # Descriptions should be short, simple, and clear.
+
+    docker:
+      - image: cimg/base:current
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    parameters:
+      greeting:
+        type: string
+        default: "Hello"
+        description: "Select a proper greeting"
+    steps:
+      - greet:
+          greeting: "<< parameters.greeting >>"
+
+  job1:
+    description: >
+      # What will this job do?
+      # Descriptions should be short, simple, and clear.
+
+    docker:
+      - image: cimg/base:current
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    parameters:
+      greeting:
+        type: string
+        default: "Salutations"
+        description: "Select a proper greeting"
+    steps:
+      - greet:
+          greeting: "<< parameters.greeting >>"
+
+examples:
+  example0:
+    description: >
+      Sample example description.
+    usage:
+      version: 2.1
+      orbs:
+        my-orb: namespace/my-orb0@1.2.3
+      workflows:
+        use-my-orb:
+          jobs:
+            - my-orb/my-job
+
+  example1:
+    description: Sample example description.
+    usage:
+      version: 2.1
+      orbs:
+        my-orb1: namespace/my-orb1@1.2.3
+      workflows:
+        use-my-orb:
+          jobs:
+            - my-orb1/my-job

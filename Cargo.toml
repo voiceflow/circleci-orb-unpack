@@ -13,3 +13,6 @@ keywords = ["circle-ci", "config"]
 anyhow = "1.0"
 clap = { version = "3.2", features = ["derive"] }
 yaml-rust = "0.4"
+
+[dev-dependencies]
+dir-diff = "0.3.2"
