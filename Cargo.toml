@@ -1,10 +1,10 @@
 [package]
 name = "orb-unpack"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["Xavientois <joshua.rampersad@hotmail.com>"]
 repository = "https://github.com/voiceflow/circleci-orb-unpack"
-license = "Apache-2.0"
+license = "ISC"
 description = "Unpack a CircleCI orb.yml into separate files compatible with orb packing"
 categories = ["command-line-utilities", "config"]
 keywords = ["circle-ci", "config"]
