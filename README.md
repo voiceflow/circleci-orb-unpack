@@ -33,4 +33,4 @@ This will create a `src/` directory in the current directory and unpack the orb'
 
 ## License
 
-Licensed under the Apache License, Version 2.0 
+Licensed under ISC
